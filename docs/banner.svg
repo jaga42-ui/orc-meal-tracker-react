@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-labelledby="t d">
+  <title id="t">ORC MEAL TRACKER — Scan to serve. Export when done.</title>
+  <desc id="d">QR scanning against Firebase with one-click XLSX export of served counts. Built with React, Vite, Firebase, html5-qrcode, SheetJS.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#041413"/>
+      <stop offset=".6" stop-color="#082625"/>
+      <stop offset="1" stop-color="#041413"/>
+    </linearGradient>
+    <linearGradient id="wash" gradientUnits="userSpaceOnUse" x1="1200" y1="0" x2="680" y2="340">
+      <stop offset="0" stop-color="#2DD4BF" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="rule" gradientUnits="userSpaceOnUse" x1="60" y1="0" x2="210" y2="0">
+      <stop offset="0" stop-color="#2DD4BF"/>
+      <stop offset="1" stop-color="#7DE9DC"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0v28" fill="none" stroke="#fff" stroke-opacity=".05"/>
+    </pattern>
+    <clipPath id="clip"><rect width="1200" height="340" rx="18"/></clipPath>
+  </defs>
+
+  <style>
+    .rise { animation: rise .8s cubic-bezier(.2,.7,.3,1) backwards; }
+    @keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+    .rule { stroke-dasharray: 150; animation: draw 1s cubic-bezier(.4,0,.2,1) .35s backwards; }
+    @keyframes draw { from { stroke-dashoffset: 150; } }
+    /* Opacity only — a CSS transform here would override the translate
+       attribute on the same element and rip the glyph out of position. */
+    .pulse { animation: pulse 3.2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity:.34; } 50% { opacity:.62; } }
+    .ring { animation: ring 3.2s ease-out infinite; transform-origin: 1010px 150px; }
+    @keyframes ring { 0% { opacity:.5; transform: scale(.7); } 100% { opacity:0; transform: scale(1.5); } }
+    @media (prefers-reduced-motion: reduce) {
+      .rise, .rule, .pulse, .ring { animation: none; }
+    }
+  </style>
+
+  <g clip-path="url(#clip)">
+    <rect width="1200" height="340" fill="url(#bg)"/>
+    <rect width="1200" height="340" fill="url(#grid)"/>
+    <rect width="1200" height="340" fill="url(#wash)"/>
+    <circle class="ring" cx="1010" cy="150" r="120" fill="none" stroke="#2DD4BF" stroke-width="1.5"/>
+    <g class="pulse" transform="translate(1010,150)">
+      <g transform="translate(-32,-32)">
+        <path d="M8 20V10a2 2 0 0 1 2-2h10M44 8h10a2 2 0 0 1 2 2v10M56 44v10a2 2 0 0 1-2 2H44M20 56H10a2 2 0 0 1-2-2V44M8 32h48" fill="none" stroke="#7DE9DC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+  <rect x=".5" y=".5" width="1199" height="339" rx="18" fill="none" stroke="#2DD4BF" stroke-opacity=".35"/>
+
+  <g class="rise">
+    <text x="60" y="118" font-family="Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', sans-serif" font-size="62" letter-spacing="1.5" fill="#fff">ORC MEAL TRACKER</text>
+  </g>
+  <line class="rule" x1="60" y1="142" x2="210" y2="142" stroke="url(#rule)" stroke-width="3"/>
+
+  <g class="rise" style="animation-delay:.15s">
+    <text x="60" y="186" font-family="'Segoe UI', -apple-system, 'Helvetica Neue', Inter, Arial, sans-serif" font-size="22" font-weight="600" fill="#7DE9DC">Scan to serve. Export when done.</text>
+    <text x="60" y="218" font-family="'Segoe UI', -apple-system, 'Helvetica Neue', Inter, Arial, sans-serif" font-size="16" fill="#fff" fill-opacity=".62">QR scanning against Firebase with one-click XLSX export of served counts.</text>
+  </g>
+
+    <g class="rise" style="animation-delay:0.50s">
+      <rect x="60" y="258" width="69" height="32" rx="8" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".14"/>
+      <text x="94.5" y="279" text-anchor="middle" font-family="ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="13" fill="#fff" fill-opacity=".85">React</text>
+    </g>
+    <g class="rise" style="animation-delay:0.56s">
+      <rect x="138" y="258" width="61" height="32" rx="8" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".14"/>
+      <text x="168.5" y="279" text-anchor="middle" font-family="ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="13" fill="#fff" fill-opacity=".85">Vite</text>
+    </g>
+    <g class="rise" style="animation-delay:0.62s">
+      <rect x="208" y="258" width="92" height="32" rx="8" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".14"/>
+      <text x="254" y="279" text-anchor="middle" font-family="ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="13" fill="#fff" fill-opacity=".85">Firebase</text>
+    </g>
+    <g class="rise" style="animation-delay:0.68s">
+      <rect x="309" y="258" width="124" height="32" rx="8" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".14"/>
+      <text x="371" y="279" text-anchor="middle" font-family="ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="13" fill="#fff" fill-opacity=".85">html5-qrcode</text>
+    </g>
+    <g class="rise" style="animation-delay:0.74s">
+      <rect x="442" y="258" width="85" height="32" rx="8" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".14"/>
+      <text x="484.5" y="279" text-anchor="middle" font-family="ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="13" fill="#fff" fill-opacity=".85">SheetJS</text>
+    </g>
+</svg>
