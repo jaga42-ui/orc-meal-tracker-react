@@ -76,4 +76,4 @@ _Drop images into `docs/screenshots/` and reference them here — the scanner sh
 
 ## Licence
 
-No licence file yet. Until one is added, default copyright applies.
+[MIT](LICENSE) © Guruprasad Jena
